@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+.ipynb_checkpoints
+*.convex.stl
+*.pyc
+__pycache__
