@@ -5,7 +5,7 @@ timestep = 1 / 120
 config = sapien.SceneConfig()
 config.solver_iterations = 5
 print(config.solver_iterations)
-engine, renderer, scene, viewer = setup_scene()
+engine, renderer, scene, viewer = setup_scene(config)
 scene.set_timestep(timestep)
 
 
