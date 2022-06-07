@@ -242,7 +242,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="finger_joint" type="revolute">
+  <joint name="left_outer_knuckle_joint" type="revolute">
     <origin rpy="0 0 3.14159265359" xyz="0 -0.0306011 0.054904"/>
     <parent link="robotiq_arg2f_base_link"/>
     <child link="left_outer_knuckle"/>
