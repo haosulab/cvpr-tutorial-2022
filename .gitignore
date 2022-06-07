@@ -7,3 +7,4 @@ tmp/
 *.convex.stl
 *.pyc
 __pycache__
+imgui.ini

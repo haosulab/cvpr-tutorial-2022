@@ -9,7 +9,7 @@ def setup_scene(config=None):
 
     if config is None:
         config = sapien.SceneConfig()
-    scene = engine.create_scene()
+    scene = engine.create_scene(config)
     scene.set_environment_map("../assets/env.ktx")
 
     b = scene.create_actor_builder()
@@ -22,7 +22,10 @@ def setup_scene(config=None):
     robot = loader.load("../assets/panda.urdf")
     robot.set_pose(sapien.Pose([-0.55, 0, 0]))
     for j in robot.get_active_joints():
-        j.set_drive_property(1000, 10)
+        j.set_drive_property(1000, 100)
+    for j in robot.get_active_joints()[-2:]:
+        j.set_drive_property(1000, 5, 10)
+
     qpos = [0, 0.345, 0, -2.25, 0, 2.75, 0.78, 0.04, 0.04]
     robot.set_qpos(qpos)
     robot.set_drive_target(qpos)
