@@ -7,7 +7,7 @@ from sapien.utils import Viewer
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-s', '--model_constraint', action='store_true', default=False,
+    parser.add_argument('-c', '--model_constraint', action='store_true', default=False,
                         help="Whether to model the joint constraint for the gripper.")
     return parser.parse_args()
 
