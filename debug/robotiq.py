@@ -136,12 +136,12 @@ left_joint.set_drive_target(0.4)
 
 viewer.toggle_pause(True)
 while not viewer.closed:
-    qpos = robot.get_qpos()
-    qf = np.zeros_like(qpos)
-    correction = min((qpos[0] - qpos[3]) * 10, 1)
-    qf[3] += correction
-    qf[0] -= correction
-    robot.set_qf(qf)
+    # qpos = robot.get_qpos()
+    # qf = np.zeros_like(qpos)
+    # correction = min((qpos[0] - qpos[3]) * 10, 1)
+    # qf[3] += correction
+    # qf[0] -= correction
+    # robot.set_qf(qf)
 
     scene.update_render()
     scene.step()

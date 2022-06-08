@@ -9,6 +9,8 @@ loader = scene.create_urdf_loader()
 loader.fix_root_link = True
 loader.scale = 0.3
 oven = loader.load("../assets/101773/mobility.urdf")
+# loader.load_multiple_collisions_from_file = True
+# oven = loader.load("../assets/101773/mobility_cvx.urdf")
 oven.set_pose(sapien.Pose([0, 0, 0.2], [0, 0, 0, 1]))  # This is not unit quaternion!
 qpos = oven.get_qpos()
 qpos[0] = 1.5

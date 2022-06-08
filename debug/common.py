@@ -2,7 +2,7 @@ import sapien.core as sapien
 from sapien.utils import Viewer
 
 
-def setup_scene(config=None):
+def setup_scene(config=None, robot=True):
     engine = sapien.Engine()
     renderer = sapien.VulkanRenderer()
     engine.set_renderer(renderer)
@@ -18,17 +18,18 @@ def setup_scene(config=None):
     b.build_static()
     scene.add_ground(-0.9, render=False)
 
-    loader = scene.create_urdf_loader()
-    robot = loader.load("../assets/panda.urdf")
-    robot.set_pose(sapien.Pose([-0.55, 0, 0]))
-    for j in robot.get_active_joints():
-        j.set_drive_property(1000, 100)
-    for j in robot.get_active_joints()[-2:]:
-        j.set_drive_property(1000, 5, 10)
+    if robot:
+        loader = scene.create_urdf_loader()
+        robot = loader.load("../assets/panda.urdf")
+        robot.set_pose(sapien.Pose([-0.55, 0, 0]))
+        for j in robot.get_active_joints():
+            j.set_drive_property(1000, 100)
+        for j in robot.get_active_joints()[-2:]:
+            j.set_drive_property(1000, 5, 10)
 
-    qpos = [0, 0.345, 0, -2.25, 0, 2.75, 0.78, 0.04, 0.04]
-    robot.set_qpos(qpos)
-    robot.set_drive_target(qpos)
+        qpos = [0, 0.345, 0, -2.25, 0, 2.75, 0.78, 0.04, 0.04]
+        robot.set_qpos(qpos)
+        robot.set_drive_target(qpos)
 
     viewer = Viewer(renderer, resolutions=((1024, 1024),))
     viewer.set_scene(scene)
