@@ -6,11 +6,10 @@ import sapien.core as sapien
 
 
 class OpenCabinetEnv(Env):
-
     action_space = gym.spaces.Box(np.ones(9) * -0.2, np.ones(9) * 0.2)
 
-    def __init__(self, simulation_frequency=500, control_frequency=20):
-        self.substeps = simulation_frequency // control_frequency
+    def __init__(self, simulation_frequency=500, action_frequency=20):
+        self.substeps = simulation_frequency // action_frequency
 
         self.engine = sapien.Engine()
         self.renderer = sapien.VulkanRenderer()
